@@ -8,6 +8,7 @@ const config = {
       screens: {
         "xs": "320px",
         "sm": "375px",
+        "md": "768px",
         "xl": "1920px",
       },
     },

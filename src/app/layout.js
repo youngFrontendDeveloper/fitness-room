@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
     <body
       className={ montserrat.className }
     >
-    <main className="bg-[var(--background)] xl:rounded-[60px] overflow-hidden">
+    <main className="bg-[var(--background)] md:rounded-[60px] overflow-hidden">
       <Header />
       { children }
     </main>
