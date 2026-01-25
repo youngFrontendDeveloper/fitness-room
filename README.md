@@ -1,36 +1,225 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Tariffs Page - React/Next.js Project
 
-## Getting Started
+## О проекте
 
-First, run the development server:
+Интерактивная страница выбора тарифов с таймером скидок, анимациями и валидацией. Проект реализован в соответствии с техническим заданием.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Функциональность
+
+### Основные возможности:
+- **Отображение тарифов** с API сервиса
+- **Таймер скидок** (2 минуты) в закрепленном хедере
+- **Визуальные эффекты**:
+  - Мигающая кнопка "Купить"
+  - Подсветка выбранного тарифа
+  - Анимация изменения цен при завершении таймера
+  - Мигающий красный таймер при остатке ≤30 секунд
+- **Валидация формы** с подсветкой обязательного чекбокса
+- **Адаптивный дизайн** для десктоп и мобильных устройств
+
+### Особенности тарифов:
+- **Лучший тариф** (`is_best: true`) отображается с увеличенной плашкой (десктоп)
+- Цены со скидкой и без (`price` / `full_price`)
+- Автоматический выбор лучшего тарифа при загрузке
+
+## Технологии
+
+- **React 18** + TypeScript
+- **Next.js 14** (App Router)
+- **Tailwind CSS** для стилизации
+- **Framer Motion** для анимаций
+
+## 📁 Структура проекта
+
+```
+src/
+├── app/
+│   ├── layout.tsx           # Корневой layout
+│   ├── page.tsx             # Главная страница с тарифами
+│   └── api/
+│       └── tariffs/
+│           └── route.ts     # API роут для получения тарифов (прокси)
+├── components/
+│   ├── Header/              # Заголовок с таймером
+│   │   ├── Timer.tsx        # Таймер скидок
+│   │   └── Header.tsx       # Заголовок страницы
+│   ├── Tariffs/
+│   │   ├── TariffCard.tsx   # Карточка тарифа
+│   │   ├── TariffList.tsx   # Список тарифов
+│   │   └── TariffSkeleton.tsx # Скелетон загрузки
+│   ├── UI/
+│   │   ├── Button.tsx       # Кнопка с анимацией
+│   │   ├── Checkbox.tsx     # Кастомный чекбокс
+│   │   └── Modal.tsx        # Модальное окно
+│   └── Providers/
+│       └── TimerProvider.tsx # Контекст таймера
+├── hooks/
+│   ├── useTimer.ts          # Хук для управления таймером
+│   └── useTariffs.ts        # Хук для загрузки тарифов
+├── types/
+│   └── index.ts             # TypeScript типы
+└── utils/
+    └── format.ts            # Утилиты форматирования
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Установка и запуск
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Предварительные требования:
+- Node.js 18+ 
+- npm или yarn
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Установка:
 
-## Learn More
+1. **Клонировать репозиторий:**
+```bash
+git clone <repository-url>
+cd tariffs-project
+```
 
-To learn more about Next.js, take a look at the following resources:
+2. **Установить зависимости:**
+```bash
+npm install
+# или
+yarn install
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Создать файл окружения:**
+```bash
+cp .env.example .env.local
+```
+Настроить переменные окружения при необходимости.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **Запустить в режиме разработки:**
+```bash
+npm run dev
+# или
+yarn dev
+```
 
-## Deploy on Vercel
+5. **Открыть в браузере:**
+```
+http://localhost:3000
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Сборка для production:
+```bash
+npm run build
+npm start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Конфигурация
+
+### Переменные окружения (.env.local):
+```env
+NEXT_PUBLIC_API_URL=https://t-core.fit-hub.pro/Test/GetTariffs
+NEXT_PUBLIC_TIMER_DURATION=120 # 2 минуты в секундах
+NEXT_PUBLIC_WARNING_THRESHOLD=30 # Порог предупреждения (секунды)
+```
+
+### Основные настройки:
+- **Таймер**: 2 минуты (120 секунд)
+- **Порог предупреждения**: 30 секунд
+- **API эндпоинт**: Настроен через прокси Next.js API route
+- **Анимации**: Плавные переходы при изменении цен
+
+## Компоненты
+
+### 1. **Timer** (`components/Header/Timer.tsx`)
+- Отображает обратный отсчет
+- Мигает красным при ≤30 секундах
+- Форматирует время в MM:SS
+
+### 2. **TariffCard** (`components/Tariffs/TariffCard.tsx`)
+- Отображает карточку тарифа
+- Подсвечивает выбранный тариф
+- Показывает цены со скидкой и без
+- Особый стиль для `is_best` тарифов
+
+### 3. **Button** (`components/UI/Button.tsx`)
+- Мигающая анимация для кнопки "Купить"
+- Состояния: default, hover, disabled
+- Интеграция с Framer Motion
+
+### 4. **Checkbox** (`components/UI/Checkbox.tsx`)
+- Кастомный чекбокс с валидацией
+- Подсветка при ошибке
+- Анимация состояния
+
+## Анимации
+
+### Реализованные эффекты:
+1. **Мигание кнопки "Купить"**:
+   - Пульсирующий эффект через `opacity`
+   - Интенсивность: 0.7 → 1
+   - Длительность: 1 секунда, бесконечное повторение
+
+2. **Переход цен при завершении таймера**:
+   - Плавное исчезновение скидочной цены
+   - Появление полной цены с fade-эффектом
+   - Изменение цвета текста
+
+3. **Подсветка выбранного тарифа**:
+   - Плавное изменение границы и фона
+   - Масштабирование для `is_best` тарифов
+
+4. **Таймер при ≤30 секундах**:
+   - Мигание красным цветом
+   - Увеличение шрифта
+   - Пульсирующая анимация
+
+## API Интеграция
+
+### Получение тарифов:
+```typescript
+// Пример структуры ответа
+interface Tariff {
+  id: string;
+  period: string;
+  price: number;          // Цена со скидкой
+  full_price: number;     // Цена без скидки
+  is_best: boolean;       // Лучший тариф (выбран по умолчанию)
+  text: string;           // Описание тарифа
+}
+```
+
+### Проксирование запроса:
+Используется Next.js API route для избежания CORS проблем:
+```typescript
+// app/api/tariffs/route.ts
+export async function GET() {
+  const response = await fetch(process.env.API_URL);
+  const data = await response.json();
+  return Response.json(data);
+}
+```
+
+## Адаптивный дизайн
+
+### Брейкпоинты Tailwind:
+- **Mobile**: до 640px
+- **Tablet**: 640px - 1024px
+- **Desktop**: 1024px+
+
+### Особенности:
+- **Десктоп**: `is_best` тариф с увеличенной плашкой
+- **Мобильные**: вертикальное расположение тарифов
+- **Планшеты**: адаптивная сетка
+
+## Валидация формы
+
+### Правила:
+1. **Обязательный чекбокс** "Согласен с условиями"
+2. **Выбор тарифа** (автоматически выбирается `is_best`)
+3. **Валидация при отправке**:
+   - При отсутствии чекбокса — красная подсветка
+   - Блокировка кнопки отправки
+
+### Состояния формы:
+- **Default**: обычное состояние
+- **Error**: чекбокс не отмечен (красная рамка)
+- **Success**: форма готова к отправке
+
+
+---
+
+**Примечание**: Проект разработан как тестовое задание с акцентом на качество кода, анимации и пользовательский опыт. Все требования ТЗ выполнены в полном объеме.
