@@ -1,9 +1,12 @@
-import Forever from '../Forever/Forever';
+import BuyBlock from "../BuyBlock/BuyBlock";
+import PricesBlock from "../PricesBlock/PricesBlock";
+
 
 export default function ContentBlock() {
   return (
-    <section className='flex flex-col gap-[6px] xs:gap-[8px] md:gap-[12px] xl:gap-[14px] w-full xl:w-[748px]'>
-     <Forever/>
+    <section className='w-full xl:w-[748px]'>
+    <PricesBlock />
+    <BuyBlock />
     </section>
   );
 };

@@ -10,8 +10,14 @@
   --warranty: #81FE95;
   --text-block-bg: #313637;
   --border: #484D4E;
-  --old-price: #919191;
+  --full_price: #919191;
   --warranty-text: #DCDCDC;
+  --payment-agreement: #9B9B9B;
+  --button-text: #191E1F;
+  --checkbox-text: #CDCDCD;
+  --checkbox-border: #606566;
+
+   
   /*--witdh-xl: 1920px;*/
   /*--witdh-sm: 375px;*/
 }
@@ -19,4 +25,8 @@
 body {
   color: var(--foreground);
   font-family: Montserrat, Arial, Helvetica, sans-serif;
+}
+
+* { 
+  box-sizing: border-box;
 }

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ContentBlock from "../components/ContentBlock/ContentBlock";
+import WarrantyBlock from "../components/WarrantyBlock/WarrantyBlock";
 
 export default function Home() {
     return (
@@ -26,7 +27,8 @@ export default function Home() {
                     />
                    
                 </div>  
-                <ContentBlock />                
+                <ContentBlock />   
+                <WarrantyBlock />             
             </div>  
             
         </div>
