@@ -1,4 +1,4 @@
-import Forever from "../Forever/Forever";
+import Forever from "../RadioGroupItem/RadioGroupItem";
 
 export default function PricesBlock () {
 

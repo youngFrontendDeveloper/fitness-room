@@ -1,15 +1,14 @@
 import Check from "../icons/Check";
+import SloganBlock from "../SloganBlock/SloganBlock";
 
-export default function BuyBlock () {
+export default function Form () {
 
   return (
       <form id="buyForm" className="w-full mb-[22px]">
-
-        <p className=''>Следуя плану на 3 месяца и более, люди получают в 2 раза лучший результат, чем за 1 месяц</p>
+       <SloganBlock />
 
          {/* <!-- Кастомизированный чекбокс --> */}
-        <div className="mb-6">
-            {/* <!-- Скрытый нативный чекбокс --> */}
+        <div className="mb-6">           
             <input 
                 type="checkbox" 
                 id="agreement" 
@@ -20,15 +19,12 @@ export default function BuyBlock () {
             
             {/* <!-- Кастомная визуальная часть чекбокса --> */}
             <label htmlFor="agreement" className="flex items-start cursor-pointer group">
-                {/* <!-- Кастомный квадратик чекбокса --> */}
-                {/* <span className="flex-shrink-0 mt-0.5"> */}
-                    <span className="flex items-center justify-center w-[30px] h-[30px] border-[2px] border-[var(--checkbox-border)] rounded-[3px] ">
+                {/* <!-- Кастомный квадратик чекбокса --> */}               
+                    <span className="flex-shrink-0 flex items-center justify-center w-[30px] h-[30px] border-[2px] border-[var(--checkbox-border)] rounded-[3px] ">
                         {/* <!-- Галочка (появляется при checked) --> */}
                        <Check className='w-[19px] xl:w-[20px] h-[14px] xl:h-[15px]' />
-                    </span>
-                {/* </span> */}
-                
-                {/* <!-- Текст соглашения --> */}
+                    </span>          
+                              
                 <span className="ml-[10px] sm:ml-[12px] text-[var(--checkbox-text)] text-[12px] xl:text-[16px] leading-[1.2]
                  select-none">
                 Я согласен с&nbsp;
@@ -38,8 +34,7 @@ export default function BuyBlock () {
                 </span>
             </label>
             </div>
-
-            {/* <!-- Кнопка покупки --> */}
+          
         <button 
             type="submit" 
             id="buyButton"
@@ -53,7 +48,7 @@ export default function BuyBlock () {
             Купить
         </button>
 
-        <p className="text-[10px] xl:text-[14px] text-[var(--payment-agreements)] leading-[1.2]">
+        <p className="text-[10px] xl:text-[14px] text-[var(--payment-agreement)] leading-[1.2]">
         Нажимая кнопку «Купить», Пользователь соглашается на разовое списание денежных средств для получения пожизненного доступа к приложению. Пользователь соглашается, что данные кредитной/дебетовой карты будут сохранены для осуществления покупок дополнительных услуг сервиса в случае желания пользователя.
         </p>
       </form>
