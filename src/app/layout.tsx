@@ -1,7 +1,9 @@
-import {Montserrat} from "next/font/google";
+import { StoreProvider } from "./providers/StoreProvider";
+import { Montserrat } from "next/font/google";
+import Container from "../components/Container/Container";
 import Header from "../components/Header/Header";
 import "./globals.css";
-import Container from "../components/Container/Container";
+
 
 const montserrat = Montserrat({
     display: "swap",
@@ -19,12 +21,14 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
         <body
             className={montserrat.className}
         >
+            <StoreProvider>
             <Container>
         <main className="bg-[var(--background)] md:rounded-[60px] overflow-hidden">
             <Header />
             {children}
         </main>
         </Container>
+        </StoreProvider>
         </body>
         </html>
     );

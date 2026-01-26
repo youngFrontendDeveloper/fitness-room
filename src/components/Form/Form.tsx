@@ -1,10 +1,18 @@
+"use client";
+import Tariffs from "../../features/components/Tariffs/Tariffs";
+import { tariff } from "../../features/types";
 import Check from "../icons/Check";
 import SloganBlock from "../SloganBlock/SloganBlock";
 
 export default function Form () {
 
+const handleChange=(value:tariff)=>{
+console.log(value);
+}
+
   return (
       <form id="buyForm" className="w-full mb-[22px]">
+        <Tariffs onChange={handleChange}/>
        <SloganBlock />
 
          {/* <!-- Кастомизированный чекбокс --> */}
