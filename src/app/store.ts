@@ -6,8 +6,7 @@ export const store = configureStore({
   reducer: {
     [tariffsApi.reducerPath]: tariffsApi.reducer,
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(tariffsApi.middleware),
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(tariffsApi.middleware),
 });
 
 // Опционально: настройка listeners для refetchOnFocus/refetchOnReconnect

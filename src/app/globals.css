@@ -1,31 +1,31 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --background: #232829;
-  --foreground: #FFFFFF;
-  --attention: #FDB056;
-  --timer: #FFBB00;
-  --warning: #FD5656;
-  --header-bg: #1D5B43;
-  --warranty: #81FE95;
+  --foreground: #ffffff;
+  --attention: #fdb056;
+  --timer: #ffbb00;
+  --warning: #fd5656;
+  --header-bg: #1d5b43;
+  --warranty: #81fe95;
   --text-block-bg: #313637;
-  --border: #484D4E;
+  --border: #484d4e;
   --full-price: #919191;
-  --warranty-text: #DCDCDC;
-  --payment-agreement: #9B9B9B;
-  --button-text: #191E1F;
-  --checkbox-text: #CDCDCD;
+  --warranty-text: #dcdcdc;
+  --payment-agreement: #9b9b9b;
+  --button-text: #191e1f;
+  --checkbox-text: #cdcdcd;
   --checkbox-border: #606566;
-  --slogan-bg: #2D3233;
-   
+  --slogan-bg: #2d3233;
+
   /*--witdh-xl: 1920px;*/
   /*--witdh-sm: 375px;*/
 }
 
 body {
-   font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
 }
 
-* { 
+* {
   box-sizing: border-box;
 }
