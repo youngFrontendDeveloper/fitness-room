@@ -1,4 +1,4 @@
-import { StoreProvider } from './providers/StoreProvider';
+import { StoreProvider } from './store/StoreProvider';
 import { Montserrat } from 'next/font/google';
 import Container from '../components/Container/Container';
 import Header from '../components/Header/Header';

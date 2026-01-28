@@ -1,4 +1,4 @@
-import Timer from '../Timer/Timer';
+import TimerBlock from '../../features/timer/components/TimerBlock';
 
 export default function Header() {
   return (
@@ -6,7 +6,7 @@ export default function Header() {
       <p className="text-[14px] sm:text-[18px] xl:text-[24px] font-semibold text-[14px] text-center text-[var(--foreground)]        ">
         Успейте открыть пробную неделю
       </p>
-      <Timer />
+      <TimerBlock initialTime={120} />
     </header>
   );
 }

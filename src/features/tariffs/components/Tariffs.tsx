@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect, useId, useState } from 'react';
-import { useGetTariffsQuery } from '../../tariffsApi';
-import { tariff } from '../../types';
-import TariffsItem from '../TariffsItem/TariffsItem';
+import TariffsItem from './TariffsItem';
+import { useGetTariffsQuery } from '../model/tariffsApi';
+import { tariff } from '../model/types';
 
 interface TariffsProps {
   onChange: (value: tariff) => void;

@@ -1,6 +1,6 @@
 'use client';
-import Tariffs from '../../features/components/Tariffs/Tariffs';
-import { tariff } from '../../features/types';
+import { tariff } from '../../features/tariffs/model/types';
+import Tariffs from '../../features/tariffs/components/Tariffs';
 import Check from '../icons/Check';
 import SloganBlock from '../SloganBlock/SloganBlock';
 
