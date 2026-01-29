@@ -17,9 +17,6 @@
   --checkbox-text: #cdcdcd;
   --checkbox-border: #606566;
   --slogan-bg: #2d3233;
-
-  /*--witdh-xl: 1920px;*/
-  /*--witdh-sm: 375px;*/
 }
 
 body {
@@ -28,4 +25,13 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }

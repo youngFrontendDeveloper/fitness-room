@@ -1,13 +1,13 @@
 'use client';
 
 import { useEffect, useId, useState } from 'react';
-import TariffsItem from './TariffsItem';
 import { useGetTariffsQuery } from '../model/tariffsApi';
 import { tariff } from '../model/types';
+import TariffsItem from './TariffsItem';
 
 interface TariffsProps {
   onChange: (value: tariff) => void;
-  value?: tariff; // Текущее выбранное значение
+  value?: tariff;
 }
 
 export default function Tariffs({ onChange, value }: TariffsProps) {
@@ -16,8 +16,7 @@ export default function Tariffs({ onChange, value }: TariffsProps) {
   const [options, setOptions] = useState<tariff[]>([]);
   const [selectedTariff, setSelectedTariff] = useState<tariff | null>(value || null);
 
-  console.log('data', data);
-  console.log(typeof data);
+  // console.log(data);
 
   useEffect(() => {
     if (value) {
@@ -29,18 +28,43 @@ export default function Tariffs({ onChange, value }: TariffsProps) {
     if (!data) return;
     try {
       const parsedData: tariff[] = JSON.parse(data);
-      const sortedData = parsedData.sort((a, b) => b.price - a.price);
-      setOptions(sortedData);
+     
+      const sortedData = parsedData.sort((a, b) => {       
+        if (a.is_best && !b.is_best) return -1; // a идет первым
+        if (!a.is_best && b.is_best) return 1; // b идет первым
 
+        // 2. Если оба is_best или оба не is_best, сортируем по убыванию цены
+        return b.price - a.price;
+      });
+
+      setOptions(sortedData);
+     
       if (!value && sortedData.length > 0) {
         const firstTariff = sortedData[0];
         setSelectedTariff(firstTariff);
-        onChange(firstTariff); // Сообщаем родителю
+        onChange(firstTariff);
       }
     } catch (err) {
       console.error('Ошибка парсинга данных тарифов:', err);
     }
   }, [data]);
+
+  // useEffect(() => {
+  //   if (!data) return;
+  //   try {
+  //     const parsedData: tariff[] = JSON.parse(data);
+  //     const sortedData = parsedData.sort((a, b) => b.price - a.price);
+  //     setOptions(sortedData);
+
+  //     if (!value && sortedData.length > 0) {
+  //       const firstTariff = sortedData[0];
+  //       setSelectedTariff(firstTariff);
+  //       onChange(firstTariff); // Сообщаем родителю
+  //     }
+  //   } catch (err) {
+  //     console.error('Ошибка парсинга данных тарифов:', err);
+  //   }
+  // }, [data]);
 
   const handleTariffSelect = (tariff: tariff) => {
     setSelectedTariff(tariff);
@@ -65,28 +89,12 @@ export default function Tariffs({ onChange, value }: TariffsProps) {
         const isChecked = selectedTariff?.period === option.period;
 
         return (
-          <div key={option.period} className="w-full">
-            <input
-              id={`tariff-${option.period}`}
-              type="radio"
-              name="tariff" // Все радио-кнопки должны иметь одинаковое name!
-              value={option.period}
-              checked={isChecked}
-              onChange={() => handleTariffSelect(option)}
-              className="absolute opacity-0 w-0 h-0"
-              aria-describedby={`description-${option.period}`}
-            />
-            <label htmlFor={`tariff-${option.period}`} className="cursor-pointer block">
-              <TariffsItem
-                period={option.period}
-                price={option.price}
-                full_price={option.full_price}
-                text={option.text}
-                is_best={option.is_best}
-                isSelected={isChecked}
-              />
-            </label>
-          </div>
+          <TariffsItem
+            key={option.period}
+            option={option}
+            isChecked={isChecked}
+            handleTariffSelect={handleTariffSelect}
+          />
         );
       })}
     </div>
