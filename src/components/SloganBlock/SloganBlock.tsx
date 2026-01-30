@@ -3,9 +3,9 @@ import ExclamationMark from '../icons/ExclamationMark';
 export default function SloganBlock() {
   return (
     <div
-      className="flex items-start gap-[6px] xl-[8px]
+      className="flex items-start gap-[6px] xl-gap-[8px] w-full max-w-[500px]
     mb-[16px] sm:mb-[24px] xl:mb-[30px] 
-    py-[14px] pr-[30px] pl-[12px]  sm:pr-[36px] xl:px-[20px] xl:py-[18px]       
+    py-[14px] pr-[30px] pl-[12px] sm:pr-[36px] xl:px-[20px] xl:py-[18px]       
     rounded-[16px] sm:rounded-[20px] bg-[var(--slogan-bg)]"
     >
       <ExclamationMark className="w-[22px] xl:w-[24px] h-[24px] xl:h-[26px]" />

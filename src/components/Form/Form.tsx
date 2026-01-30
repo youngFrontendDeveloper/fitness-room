@@ -25,7 +25,7 @@ export default function Form() {
 
       <SloganBlock />
 
-      <CheckBox setChecked={setChecked} isChecked={isChecked} isSubmitting={isSubmitting}/>
+      <CheckBox setChecked={setChecked} isChecked={isChecked} isSubmitting={isSubmitting} />
 
       <button
         type="submit"
@@ -36,7 +36,7 @@ export default function Form() {
         className="
     flex justify-center items-center 
     w-full max-w-[352px] h-[55px] sm:h-[63px] xl:h-[66px]
-    mb-[10px] sm:mb-[20px] xl:mb-[40px] 
+    mb-[10px] sm:mb-[20px] xl:mb-[14px] 
     text-[18px] xl:text-[20px] text-[var(--button-text)] font-bold leading-[1.3]
     bg-[var(--attention)] rounded-[20px]  
     transition-all duration-200 

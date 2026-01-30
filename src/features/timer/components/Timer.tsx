@@ -37,17 +37,17 @@ export default function Timer({ initialTime }: { initialTime: number }) {
   }, []);
 
   useEffect(() => {
-    if (time === 30) {   
+    if (time === 30) {
       setTimeRunningOut(true);
     }
   });
 
-  // useEffect(() => {
-  //   if (time === 0) {   
-  //     setTimeRunningOut(false);
-  //     dispatch(setTimeFinished(true));
-  //   }
-  // });
+  useEffect(() => {
+    if (time === 0) {
+      setTimeRunningOut(false);
+      dispatch(setTimeFinished(true));
+    }
+  });
 
   useEffect(() => {
     if (time <= 0) {

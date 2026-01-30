@@ -2,7 +2,7 @@ export default function WarrantyBlock() {
   return (
     <section className="w-full h-max p-[12px] xl:p-[20px] border  border-[var(--border)]  rounded-[20px] xl:rounded-[30px]">
       <h3
-        className="mb-[10px]  xl:mb-[30px]
+        className=" xl:max-w-max mb-[10px]  xl:mb-[30px]
          px-[18px] pt-[10px] pb-[12px]  xl:px-[30px]  xl:pt-[16px]  xl:pb-[18px]  
          text-[16px] sm:text-[18px] md:text-[20px] xl:text-[28px] 
          text-[var(--warranty)]
