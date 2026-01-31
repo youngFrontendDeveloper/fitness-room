@@ -27,7 +27,7 @@ export default function TariffsItem({ option, isChecked, handleTariffSelect }: T
     <div
       key={option.period}
       className={`w-full 
-       ${option.is_best ? 'xl:w-full' : 'xl:w-[240px]'}
+       ${option.is_best ? 'xl:w-full' : 'xl:w-[210px] xl:flex-1 '}
     `}
     >
       <input
@@ -40,7 +40,7 @@ export default function TariffsItem({ option, isChecked, handleTariffSelect }: T
         className="absolute opacity-0 w-0 h-0"
         aria-describedby={`description-${option.period}`}
       />
-      <label htmlFor={`tariff-${option.period}`} className="cursor-pointer block">
+      <label htmlFor={`tariff-${option.period}`} className="flex cursor-pointer ">
         <div
           className={` border-2 rounded-[20px] xl:rounded-[40px] bg-[var(--text-block-bg)]
         transition-all duration-300 cursor-pointer
@@ -53,7 +53,7 @@ export default function TariffsItem({ option, isChecked, handleTariffSelect }: T
         ${
           option.is_best
             ? 'relative overflow-hidden justify-start xl:justify-between xl:gap-[35px] xl:min-h-[190px] xl:px-[80px] xl:pt-[34px] xl:pb-[30px]'
-            : 'xl:flex-col justify-start xl:gap-0 xl:w-[240px] xl:min-h-[335px] xl:px-[18px] xl:pt-[70px] xl:pb-[23px]     '
+            : 'xl:flex-col justify-start xl:flex-1 xl:gap-0 xl:w-[210px] xl:max-w-[240px] xl:min-h-[335px] xl:px-[18px] xl:pt-[70px] xl:pb-[23px]     '
         }
         relative flex items-center gap-[30px] sm:gap-[45px] w-full min-h-[118px] sm:min-h-[131px] px-[20px] sm:pr-[20px] sm:pl-[30px]  py-[20px]
       `}

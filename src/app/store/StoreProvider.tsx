@@ -1,5 +1,4 @@
-// app/providers/StoreProvider.tsx
-'use client'; // ОБЯЗАТЕЛЬНО!
+'use client'; 
 
 import { Provider } from 'react-redux';
 import { ReactNode } from 'react';

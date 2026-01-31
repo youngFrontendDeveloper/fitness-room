@@ -1,8 +1,8 @@
-import { StoreProvider } from './store/StoreProvider';
 import { Montserrat } from 'next/font/google';
 import Container from '../components/Container/Container';
 import Header from '../components/Header/Header';
 import './globals.css';
+import { StoreProvider } from './store/StoreProvider';
 
 const montserrat = Montserrat({
   display: 'swap',
@@ -20,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={montserrat.className}>
         <StoreProvider>
           <Container>
-            <main className="bg-[var(--background)] md:rounded-[60px] overflow-hidden">
+            <main className="relative overflow-auto h-screen">
               <Header />
               {children}
             </main>
