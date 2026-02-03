@@ -20,10 +20,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={montserrat.className}>
         <StoreProvider>
           <Container>
-            <main className="relative overflow-auto h-screen">
-              <Header />
-              {children}
-            </main>
+            <Header />
+            <main className="relative min-h-screen overflow-x-hidden">{children}</main>
           </Container>
         </StoreProvider>
       </body>
