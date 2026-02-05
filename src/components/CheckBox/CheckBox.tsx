@@ -24,6 +24,7 @@ export default function CheckBox({ setChecked, isChecked, isSubmitting }: CheckB
           flex-shrink-0 flex items-center justify-center w-[30px] h-[30px] border-[2px] rounded-[3px]
           ${isSubmitting && !isChecked ? 'border-[var(--warning)]' : 'border-[var(--checkbox-border)]'}
           `}
+          tabIndex={0}
         >
           {isChecked && <Check className="w-[19px] xl:w-[20px] h-[14px] xl:h-[15px]" />}
         </span>
