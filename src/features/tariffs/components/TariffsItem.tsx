@@ -63,8 +63,9 @@ export default function TariffsItem({ option, isChecked, handleTariffSelect }: T
           </span>
         )}
 
-        <span
-          className={`
+        {!isTimeFinished && (
+          <span
+            className={`
             absolute top-[-1px] xl:left-[50px] w-[42px] sm:w-[48px] xl:w-[70px] h-[23px] sm:h-[27px] xl:h-[39px] 
             py-[3px] px-[6px] xl:py-[5px] xl:px-[8px] 
             text-[var(--foreground)] text-[13px] sm:text-[16px] xl:text-[22px] font-medium leading-[1.3]
@@ -75,9 +76,10 @@ export default function TariffsItem({ option, isChecked, handleTariffSelect }: T
                 : 'right-[33px] sm:right-[30px]'
             }
           `}
-        >
-          -{discount}%
-        </span>
+          >
+            -{discount}%
+          </span>
+        )}
 
         <div className="flex flex-col min-w-[130px] sm:min-w-[140px] xl:min-w-[200px]">
           <h2
