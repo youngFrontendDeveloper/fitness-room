@@ -26,7 +26,7 @@ export default function TariffsItem({ option, isChecked, handleTariffSelect }: T
   return (
     <div
       className={`w-full 
-        ${option.is_best ? 'xl:w-full' : 'xl:w-[210px] xl:flex-1'}`}
+        ${option.is_best ? 'xl:w-full' : 'xl:min-w-[210px] xl:flex-1'}`}
     >
       <div
         role="radio"
@@ -52,7 +52,7 @@ export default function TariffsItem({ option, isChecked, handleTariffSelect }: T
           ${
             option.is_best
               ? 'relative overflow-hidden justify-start xl:justify-between xl:gap-[35px] xl:min-h-[190px] xl:px-[80px] xl:pt-[34px] xl:pb-[30px]'
-              : 'xl:flex-col justify-start xl:flex-1 xl:gap-0 xl:w-[210px] xl:max-w-[240px] xl:min-h-[335px] xl:px-[18px] xl:pt-[70px] xl:pb-[23px]'
+              : 'xl:flex-col justify-start xl:flex-1 xl:gap-0 xl:min-w-[210px] xl:max-w-[240px] xl:min-h-[335px] xl:px-[18px] xl:pt-[70px] xl:pb-[23px]'
           }
           relative flex items-center gap-[30px] sm:gap-[45px] w-full min-h-[118px] sm:min-h-[131px] px-[20px] sm:pr-[20px] sm:pl-[30px] py-[20px]
         `}

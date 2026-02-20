@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useId, useState } from 'react';
+import { tariffs } from '../../../constants/tariffs';
 import { useGetTariffsQuery } from '../model/tariffsApi';
 import { tariff } from '../model/types';
 import TariffsItem from './TariffsItem';
@@ -23,9 +24,8 @@ export default function Tariffs({ onChange, value }: TariffsProps) {
   }, [value]);
 
   useEffect(() => {
-    if (!data) return;
     try {
-      const parsedData: tariff[] = JSON.parse(data);
+      const parsedData: tariff[] = data ? JSON.parse(data) : tariffs;
 
       const sortedData = parsedData.sort((a, b) => {
         if (a.is_best && !b.is_best) return -1;
@@ -53,10 +53,6 @@ export default function Tariffs({ onChange, value }: TariffsProps) {
 
   if (isLoading) {
     return <div className="py-8 text-center text-gray-500">Загрузка тарифов...</div>;
-  }
-
-  if (error) {
-    return <div className="py-8 text-center text-red-500">Ошибка загрузки тарифов</div>;
   }
 
   return (
