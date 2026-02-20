@@ -1,7 +1,7 @@
 export default function WarrantyBlock() {
   return (
     <section className="w-full h-max p-[12px] xl:p-[20px] border  border-[var(--border)]  rounded-[20px] xl:rounded-[30px]">
-      <h3
+      <h2
         className=" xl:max-w-max mb-[10px]  xl:mb-[30px]
          px-[18px] pt-[10px] pb-[12px]  xl:px-[30px]  xl:pt-[16px]  xl:pb-[18px]  
          text-[16px] sm:text-[18px] md:text-[20px] xl:text-[28px] 
@@ -12,7 +12,7 @@ export default function WarrantyBlock() {
          "
       >
         гарантия возврата 30 дней
-      </h3>
+      </h2>
       <p
         className="text-[13px] sm:text-[14px] md:text-[18px] xl:text-[24px] 
          text-[var(--warranty-text)] leading-[1.3]"
